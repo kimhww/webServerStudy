@@ -1,6 +1,7 @@
 package kimhw.kimhwspring.service;
 
 import kimhw.kimhwspring.repository.JdbcMemberRepository;
+import kimhw.kimhwspring.repository.JdbcTemplateMemberRepository;
 import kimhw.kimhwspring.repository.MemberRepository;
 import kimhw.kimhwspring.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,9 @@ public class SpringConfig {
 
     @Bean
     public MemberRepository memberRepository() {
-        return new JdbcMemberRepository(dataSource);
+
         //return new MemoryMemberRepository();
+        //return new JdbcMemberRepository(dataSource);
+        return new JdbcTemplateMemberRepository(dataSource);
     }
 }
